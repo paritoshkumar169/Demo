@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 8%;
+    --foreground: 210 40% 98%;
+    --card: 229 20% 15%;
+    --card-foreground: 210 40% 98%;
+    --popover: 229 20% 15%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 229 20% 26%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 229 20% 26%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 229 20% 26%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 229 20% 20%;
+    --input: 229 20% 20%;
+    --ring: 217 91% 60%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-tokyo-black text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background: linear-gradient(135deg, #0f111a 0%, #1a1b26 100%);
+  }
+}
+
+.glass-panel {
+  @apply backdrop-blur-md border border-white/5 rounded-xl;
+  background: linear-gradient(135deg, rgba(30, 30, 46, 0.8) 0%, rgba(15, 17, 26, 0.9) 100%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.token-card {
+  @apply border border-white/5 rounded-xl transition-all duration-300;
+  @apply hover:translate-y-[-4px] hover:shadow-lg;
+  background: linear-gradient(135deg, rgba(30, 30, 46, 0.8) 0%, rgba(15, 17, 26, 0.9) 100%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.token-card.active {
+  @apply animate-glow;
+}
+
+.token-card.sell-window {
+  @apply animate-sell-window-glow bg-neon-red/10;
+}
+
+.countdown {
+  @apply font-mono text-lg font-bold;
+}
+
+.neon-blue-btn {
+  @apply bg-neon-blue hover:bg-neon-blue-dark text-white font-medium rounded-lg transition-all;
+}
+
+.neon-red-btn {
+  @apply bg-neon-red hover:bg-neon-red-dark text-white font-medium rounded-lg transition-all;
+}
+
+.neon-blue-gradient {
+  @apply bg-gradient-to-r from-neon-blue to-neon-blue-light;
+}
+
+.neon-red-gradient {
+  @apply bg-gradient-to-r from-neon-red to-neon-red-light;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 87, 34, 0.1) 100%);
+  position: relative;
+}
+
+.hero-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 152, 0, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.connect-wallet-btn {
+  @apply text-white font-medium rounded-lg transition-all;
+  background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+
+.connect-wallet-btn:hover {
+  box-shadow: 0 6px 16px rgba(255, 152, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+.animated-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-bg::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 152, 0, 0.1) 0%,
+    rgba(255, 87, 34, 0.1) 25%,
+    rgba(30, 30, 46, 0.1) 50%,
+    rgba(15, 17, 26, 0.1) 75%,
+    rgba(255, 152, 0, 0.1) 100%
+  );
+  animation: rotate 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
